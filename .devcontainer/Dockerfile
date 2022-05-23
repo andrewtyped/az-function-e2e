@@ -9,3 +9,9 @@ RUN if [ "$INSTALL_AZURE_FUNCTIONS_TOOLS" = "true" ]; then curl https://packages
 
 # Install az cli
 RUN sudo sh -c 'curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
+
+# Install Terraform
+RUN apt-get update && apt-get install -y gnupg software-properties-common curl \
+    && curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
+    && sudo sh -c 'apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"' \
+    && apt-get update && apt-get -y install --no-install-recommends terraform
