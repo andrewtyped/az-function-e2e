@@ -351,5 +351,6 @@ MigrationBackup/
 
 # terraform
 
+.terraform/
 *.tfstate
 *.tfstate.backup
